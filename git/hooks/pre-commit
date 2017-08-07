@@ -1,0 +1,18 @@
+#!/bin/sh
+
+r=0
+
+files_with_nocommit=`git diff --cached --name-only --diff-filter=AM | xargs -I{} grep -i "nocommit" -l {}`
+# stop the commit if any changed files contain the word "NOCOMMIT"
+if [ ! -z "$files_with_nocommit"  ]; then
+    echo "==========================================="
+    echo "\033[1;35m      Files contain NOCOMMIT marker\033[00m"
+    echo "==========================================="
+    IFS=$'\n'
+    for f in  "$files_with_nocommit"; do
+        echo "$f\n"
+    done
+    r=1
+fi
+
+exit $r
