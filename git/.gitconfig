@@ -1,0 +1,10 @@
+[core]
+	excludesfile = /Users/stefan-dhi/.gitignore
+[alias]
+	br = branch
+	co = checkout
+	st = status
+	history = log --graph --pretty=format:'%Cred%h%C(yellow) %d -%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=relative
+	comaster = !git checkout master && git fetch && git pull && :
+[user]
+	email = [---change-me---]@[---change-me---]
